@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.product.view;
+package com.alnaser.entity;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -22,7 +22,7 @@ import javax.persistence.Transient;
 
 /**
  *
- * @author User
+ * @author alnaser
  */
 @Entity
 @Table(name = "produit", catalog = "gestion_produit", schema = "")

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.product.view;
+package com.alnaser.view;
 
+import com.alnaser.entity.Produit;
 import java.awt.EventQueue;
 import java.beans.Beans;
 import java.util.ArrayList;
-
 import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
@@ -47,7 +47,7 @@ public class GestionProduit extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField fournisseurField;
     private javax.swing.JLabel fournisseurLabel;
-    private java.util.List<com.product.view.Produit> list;
+    private java.util.List<com.alnaser.entity.Produit> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;
@@ -333,9 +333,9 @@ public class GestionProduit extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
         int[] selected = masterTable.getSelectedRows();
-        List<com.product.view.Produit> toRemove = new ArrayList<>(selected.length);
+        List<com.alnaser.entity.Produit> toRemove = new ArrayList<>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            com.product.view.Produit p = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            com.alnaser.entity.Produit p = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(p);
             entityManager.remove(p);
         }
@@ -343,7 +343,7 @@ public class GestionProduit extends JPanel {
     }
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        com.product.view.Produit p = new com.product.view.Produit();
+        com.alnaser.entity.Produit p = new com.alnaser.entity.Produit();
         entityManager.persist(p);
         list.add(p);
         int row = list.size() - 1;
@@ -357,8 +357,8 @@ public class GestionProduit extends JPanel {
             entityManager.getTransaction().begin();
         } catch (RollbackException rex) {
             entityManager.getTransaction().begin();
-            List<com.product.view.Produit> merged = new ArrayList<>(list.size());
-            for (com.product.view.Produit p : list) {
+            List<com.alnaser.entity.Produit> merged = new ArrayList<>(list.size());
+            for (com.alnaser.entity.Produit p : list) {
                 merged.add(entityManager.merge(p));
             }
             list.clear();

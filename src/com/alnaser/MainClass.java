@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package com.product.view;
+package com.alnaser;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 /**
  *
- * @author User
+ * @author alnaser
  */
 public class MainClass {
 
@@ -32,14 +32,14 @@ public class MainClass {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionProduit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(com.alnaser.view.GestionProduit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 JFrame frame = new JFrame();
-                frame.setContentPane(new GestionProduit());
+                frame.setContentPane(new com.alnaser.view.GestionProduit());
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
